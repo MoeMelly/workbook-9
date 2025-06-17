@@ -12,15 +12,18 @@ public class ProductController {
     ProductDAO productDAO;
 
     @Autowired
-    public void setProductDAO(ProductDAO productDAO) {
+    public ProductController(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }
+
     @GetMapping("/products")
     public List<Product> displayAllProducts() {
         return productDAO.getAll();
     }
+
     public void addProduct() {
-        Product product = new Product(1,"Black","Fruits",new BigDecimal("2098.90"));
-       productDAO.add(product);
+        Product product = new Product(1, "Black", "Fruits", new BigDecimal("2098.90"));
+        productDAO.add(product);
     }
+
 }
