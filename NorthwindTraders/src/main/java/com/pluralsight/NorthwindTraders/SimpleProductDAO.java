@@ -30,6 +30,6 @@ public class SimpleProductDAO implements ProductDAO {
 
     @Override
     public List<Product> getAll() {
-        return List.of();
+        return products;
     }
 }

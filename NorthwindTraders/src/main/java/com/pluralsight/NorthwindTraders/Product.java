@@ -19,32 +19,28 @@ public class Product {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
 
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+
 
     public int getProductID() {
         return productID;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+
+    @Override
+    public String toString() {
+        String formatter = "%-4s|%-25s|%-25s|%-11s";
+        return String.format(formatter, productID, name, category, price);
     }
 
 
