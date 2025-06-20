@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -75,5 +76,26 @@ public class JdbcProductDAO implements ProductDAO {
         } catch (SQLException e) {
            throw new RuntimeException("Product not found with id: " + id, e);
         }
+    }
+
+    @Override
+    public Product insert(Product product) {
+        String sql = "INSERT INTO products (name, category, price) VALUES (?, ?, ?)";
+
+       try (Connection connection = source.getConnection()) {
+           PreparedStatement stmt = connection.prepareStatement(sql);
+           stmt.setString(1, product.productName());
+           stmt.setInt(2,product.categoryId());
+           stmt.setBigDecimal(3,product.unitPrice());
+
+
+
+
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
+
+
+        return null;
     }
 }
