@@ -1,14 +1,15 @@
-package com.pluralsight.NorthwindTraders;
+package com.pluralsight.NorthwindTradersApi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NorthwindTradersApplication {
+public class NorthwindTradersApiApplication {
 
 	public static void main(String[] args) {
+		SpringApplication.run(NorthwindTradersApiApplication.class, args);
 
-		SpringApplication.run(NorthwindTradersApplication.class, args);
+
 	}
 
 }
